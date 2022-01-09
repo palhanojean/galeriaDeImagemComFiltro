@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <!-- custom css file -->
+   <link rel="stylesheet" href="css/style.css">
+
+   <title>Palhano's search box</title>
+   <link rel="shortcut icon" href="images/cute-3.jpg" type="image/x-icon">
+   
+</head>
+<body>
+
+
+   <div class="container">
+
+      <div class="heading">type to search images</div>
+
+      <input type="text" placeholder="search images" id="search-box">
+      <div class="image-container">
+
+         <div class="image" data-title="cute">
+            <img src="images/cute-1.jpg" alt="">
+            <h3>cute animal</h3>
+         </div>
+
+         <div class="image" data-title="car">
+            <img src="images/car-1.jpg" alt="">
+            <h3>Car</h3>
+         </div>
+
+         <div class="image" data-title="food">
+            <img src="images/food-1.jpg" alt="">
+            <h3>Food</h3>
+         </div>
+
+         <div class="image" data-title="city">
+            <img src="images/city-1.jpg" alt="">
+            <h3>City</h3>
+         </div>
+
+         <div class="image" data-title="food">
+            <img src="images/food-2.jpg" alt="">
+            <h3>Food</h3>
+         </div>
+
+         <div class="image" data-title="car">
+            <img src="images/car-2.jpg" alt="">
+            <h3>Modern Car</h3>
+         </div>
+
+         <div class="image" data-title="cute">
+            <img src="images/cute-2.jpg" alt="">
+            <h3>cute animal</h3>
+         </div>
+
+         <div class="image" data-title="food">
+            <img src="images/food-3.jpg" alt="">
+            <h3>Food</h3>
+         </div>
+
+         <div class="image" data-title="cute">
+            <img src="images/cute-3.jpg" alt="">
+            <h3>cute animal</h3>
+         </div>
+
+      </div>
+   </div>
+   <script>
+
+      let searchBox = document.querySelector('#search-box');
+      let images = document.querySelectorAll('.container .image-container .image');
+
+      searchBox.oninput = () =>{
+         images.forEach(hide => hide.style.display = 'none');
+         let value = searchBox.value;
+         images.forEach(filter =>{
+            let title = filter.getAttribute('data-title');
+            if(value == title){
+               filter.style.display = 'block';
+            }
+            if(searchBox.value == ''){
+               filter.style.display = 'block';
+            }
+
+         });
+      };
+
+   </script>
+   
+</body>
+</html>
